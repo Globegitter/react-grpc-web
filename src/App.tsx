@@ -9,18 +9,20 @@ import './App.css';
 const App: React.FC = () => {
   const greeterService = new GreeterClient('http://localhost:8080', null, null);
   const request = new HelloRequest();
-  request.setName("Markus")
-  const call = greeterService.sayHello(request, {}, (err, response) => {
-    if (err) {
-      if (err.code !== grpcWeb.StatusCode.OK) {
-        console.log(
-            'Error code: ' + err.code + ' "' + err.message + '"');
-      }
-    } else {
-      console.log(response.getMessage());
-    }
-  });
-  console.log(call);
+  request.setName("Markus");
+  console.log(request);
+  // For the request to work you will actually need to run the grpc service
+  // const call = greeterService.sayHello(request, {}, (err, response) => {
+  //   if (err) {
+  //     if (err.code !== grpcWeb.StatusCode.OK) {
+  //       console.log(
+  //           'Error code: ' + err.code + ' "' + err.message + '"');
+  //     }
+  //   } else {
+  //     console.log(response.getMessage());
+  //   }
+  // });
+  // console.log(call);
   return (
     <div className="App">
       <header className="App-header">
